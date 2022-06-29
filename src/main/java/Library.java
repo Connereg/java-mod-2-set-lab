@@ -6,14 +6,14 @@ import java.util.HashMap;
 public class Library {
     HashMap<String, Book> library = new HashMap<String, Book>();
 
-    Set<String> unqiueGenres = new HashSet<String>();
+    Set<String> uniqueGenres = new HashSet<String>();
 
 
     public void addBookToLibrary(Book bookToAdd) {
         library.put(bookToAdd.getTitle(), bookToAdd);
         System.out.println("The book " + bookToAdd.getTitle() + " has been added to the library!");
 
-        unqiueGenres.add(bookToAdd.getGenre());
+        uniqueGenres.add(bookToAdd.getGenre());
         System.out.println("The genre " + bookToAdd.getGenre() + " has been added to the library");
 
 
@@ -22,7 +22,10 @@ public class Library {
         for (String bookTitle : library.keySet() ) {
             System.out.println(bookTitle);
         }
+        System.out.println("Available Genres: " + uniqueGenres);
+        System.out.println("____________________________");
         
+
     }
 
     public void findExistingBook(String bookTitleInput) {
@@ -42,5 +45,12 @@ public class Library {
             System.out.println("Book Length: " + bookResult.getNumPages());
         }
 
+    }
+
+    public void findBooksOfAGenre(String bookGenreInput) {
+        System.out.println("Checking to see if we have books in that genre...");
+        String check = bookGenreInput;
+
+        System.out.println("Library contains " + bookGenreInput + " is " + uniqueGenres.contains(check));
     }
 }

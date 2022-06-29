@@ -17,7 +17,8 @@ public class Main {
             
             System.out.println("Hello to the Library! Would you like to add a book to the Library or find an existing book?");
             System.out.println("Enter 'x' to add a book to the Library");
-            System.out.println("Enter 'o' to find an existing book :");
+            System.out.println("Enter 'o' to find an existing book");
+            System.out.println("Enter 'g' to find all books of an exitsing genre :");
             String findOrAddResult = scanner.nextLine();
 
             // Adding A Book to the Library
@@ -58,6 +59,17 @@ public class Main {
                 String bookTitleInput = scanner.nextLine();
 
                 library.findExistingBook(bookTitleInput);
+
+                runAgainInstructions();
+                String userReply = scanner.nextLine();
+                runAgainFunc(userReply, runAgain);
+            }
+            else if (findOrAddResult.equals("g")) {
+                
+                System.out.println("Please input the genre below to check if we have any books of that kiND :");
+                String checkGenreInput = scanner.nextLine();
+
+                library.findBooksOfAGenre(checkGenreInput);
 
                 runAgainInstructions();
                 String userReply = scanner.nextLine();
